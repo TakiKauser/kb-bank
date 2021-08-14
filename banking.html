@@ -14,9 +14,10 @@
     <header>
         <h1 class="text-4xl font-bold text-center mt-16"><span class="text-gray-700">Let's get some </span><span class="text-5xl text-yellow-600">Money!</span></h1>
     </header>
-    <main>
+    <main class=" w-3/4 mx-auto">
+        <!-- balance && transaction -->
         <section class="my-16">
-            <div class="grid grid-cols-3 gap-4 w-3/4 mx-auto text-white">
+            <div class="grid grid-cols-3 gap-4 text-white">
                 <div class="bg-blue-400 p-8 rounded">
                     <h3 class="text-2xl font-medium">Deposit</h3>
                 <h4 class="text-4xl font-bold">$333</h4>
@@ -28,6 +29,32 @@
                 <div class="bg-green-400 p-8 rounded">
                     <h3 class="text-2xl font-medium">Balance</h3>
                 <h4 class="text-4xl font-bold">$3333</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- deposit && withdraw -->
+        <section>
+            <div class="grid grid-cols-2 gap-4">
+                <!-- deposit -->
+                <div class="bg-blue-200 w-3/4 mx-auto p-4 border-2 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-center text-gray-700 p-5">Please Deposit</h3>
+
+                    <div>
+                        <input class="border-2 rounded block w-3/4 text-center my-3 mx-auto p-1" type="text" name="" id="deposit-amount-input" placeholder="$000">
+                        
+                        <button id="deposit-btn" class="bg-yellow-700 px-4 py-2 rounded text-white font-bold mx-auto block">Deposit</button>
+                    </div>
+                </div>
+                <!-- withdraw -->
+                <div class="bg-green-200 w-3/4 mx-auto p-4 border-2 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-center text-gray-700 p-5">Please Withdraw</h3>
+
+                    <div>
+                        <input class="border-2 rounded block w-3/4 text-center my-3 mx-auto p-1" type="text" name="" id="withdraw-amount-input" placeholder="$000">
+                        
+                        <button id="withdraw-btn" class="bg-yellow-700 px-4 py-2 rounded text-white font-bold mx-auto block">Withdraw</button>
+                    </div>
                 </div>
             </div>
         </section>

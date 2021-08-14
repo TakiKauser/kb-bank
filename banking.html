@@ -5,8 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banking Page</title>
+
+    <!-- tailwind cdn link -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 <body>
-    <h1>Banking Site</h1>
+    <header>
+        <h1 class="text-4xl font-bold text-center mt-16"><span class="text-gray-700">Let's get some </span><span class="text-5xl text-yellow-600">Money!</span></h1>
+    </header>
+    <main>
+        <section class="my-16">
+            <div class="grid grid-cols-3 gap-4 w-3/4 mx-auto text-white">
+                <div class="bg-blue-400 p-8 rounded">
+                    <h3 class="text-2xl font-medium">Deposit</h3>
+                <h4 class="text-4xl font-bold">$333</h4>
+                </div>
+                <div class="bg-yellow-400 p-8 rounded">
+                    <h3 class="text-2xl font-medium">Withdraw</h3>
+                <h4 class="text-4xl font-bold">$33</h4>
+                </div>
+                <div class="bg-green-400 p-8 rounded">
+                    <h3 class="text-2xl font-medium">Balance</h3>
+                <h4 class="text-4xl font-bold">$3333</h4>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="js/bank.js"></script>
 </body>
 </html>

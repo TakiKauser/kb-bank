@@ -1,4 +1,4 @@
-function inputtedAmount(inputtedAmountID){
+function inputtedAmount(inputtedAmountID) {
     // get amount
     const amountInput = document.getElementById(inputtedAmountID);
     const amountText = amountInput.value;
@@ -9,7 +9,7 @@ function inputtedAmount(inputtedAmountID){
 
     return amount;
 }
-function previousTotalAmount(previousTotalAmountID, inputAmount){
+function previousTotalAmount(previousTotalAmountID, inputAmount) {
     // get previous total
     const previousTotal = document.getElementById(previousTotalAmountID);
     const previousTotalAmountText = previousTotal.innerText;
@@ -21,7 +21,7 @@ function previousTotalAmount(previousTotalAmountID, inputAmount){
     previousTotal.innerText = updatedTotalAmount;
 }
 
-function getPreviousTotalBalanceAmount(){
+function getPreviousTotalBalanceAmount() {
     // get previous total balance
     const previousTotalBalance = document.getElementById("total-balance");
     const previousTotalBalanceAmountText = previousTotalBalance.innerText;
@@ -30,41 +30,46 @@ function getPreviousTotalBalanceAmount(){
     return previousTotalBalanceAmount;
 }
 
-function updateTotalBalance(inputAmount, isAddition){
+function updateTotalBalance(inputAmount, isAddition) {
     // get previous total balance 
     const previousTotalBalance = document.getElementById("total-balance");
     const previousTotalBalanceAmount = getPreviousTotalBalanceAmount();
 
     // update previous total balance
-    if (isAddition == true){
+    if (isAddition == true) {
         previousTotalBalance.innerText = previousTotalBalanceAmount + inputAmount;
     }
-    else{
+    else {
         previousTotalBalance.innerText = previousTotalBalanceAmount - inputAmount;
     }
 }
 
 // deposit event handler
-document.getElementById("deposit-btn").addEventListener("click", function(){
+document.getElementById("deposit-btn").addEventListener("click", function () {
     // get depositted amount
     const depositAmount = inputtedAmount("deposit-amount-input");
 
-    // get and update previous total deposit
-    const previousTotalDepositAmount = previousTotalAmount("total-deposit", depositAmount);
+    if (depositAmount > 0) {
+        // get and update previous total deposit
+        const previousTotalDepositAmount = previousTotalAmount("total-deposit", depositAmount);
 
-    // update total balance
-    updateTotalBalance(depositAmount, true);
-
+        // update total balance
+        updateTotalBalance(depositAmount, true);
+    }
 });
 
 // withdraw event handler
-document.getElementById("withdraw-btn").addEventListener("click", function(){
+document.getElementById("withdraw-btn").addEventListener("click", function () {
     // get withdraw amount
     const withdrawAmount = inputtedAmount("withdraw-amount-input");
- 
-    // get previous total withdraw
-    const previousTotalWithdrawAmount = previousTotalAmount("total-withdraw", withdrawAmount);
- 
-    // update total balance
-    updateTotalBalance(withdrawAmount, false);
+
+    const currentBalance = getPreviousTotalBalanceAmount();
+
+    if ((withdrawAmount > 0) && (withdrawAmount <= currentBalance)) {
+        // get previous total withdraw
+        const previousTotalWithdrawAmount = previousTotalAmount("total-withdraw", withdrawAmount);
+
+        // update total balance
+        updateTotalBalance(withdrawAmount, false);
+    }
 });
